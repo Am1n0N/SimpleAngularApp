@@ -1,0 +1,42 @@
+<div class="flex justify-center items-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-6">Sign Up</h2>
+        <form (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" for="name">
+                    Name
+                </label>
+                <input
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="name" type="text" formControlName="name" placeholder="Enter your name" />
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="email" type="email" formControlName="email" placeholder="Enter your email" />
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 font-bold mb-2" for="password">
+                    Password
+                </label>
+                <input
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="password" type="password" formControlName="password" placeholder="Enter your password" />
+            </div>
+            <div class="flex items-center justify-between">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit" [disabled]="signUpForm.invalid">
+                    Sign Up
+                </button>
+                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                    routerLink="/signin">
+                    Already have an account?
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

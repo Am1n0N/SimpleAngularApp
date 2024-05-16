@@ -1,0 +1,23 @@
+<div *ngIf="campsite" class="container mx-auto p-12 my-12">
+    <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/2 mb-4 md:mb-0">
+            <img src="assets/images/{{campsite.name}}.jpg" [alt]="campsite.name" class="w-full rounded-lg" />
+        </div>
+        <div class="md:w-1/2 md:ml-4">
+            <h1 class="text-3xl font-bold mb-2">{{ campsite.name }}</h1>
+            <p class="text-gray-700 mb-2">{{ campsite.location }}</p>
+            <p class="text-gray-600 mb-4">{{ campsite.description }}</p>
+            <p class="text-green-600 font-bold mb-4">${{ campsite.price }} per night</p>
+            <button *ngIf="isLoggedIn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                (click)="toggleReservationForm()">
+                Make Reservation
+            </button>
+            <button *ngIf="!isLoggedIn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <a routerLink="/sign-in">Sign-In</a>
+            </button>
+        </div>
+    </div>
+
+    <app-reservation *ngIf="showReservationForm" [campsite]="campsite"
+        (reservationMade)="onReservationMade()"></app-reservation>
+</div>
